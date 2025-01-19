@@ -21,7 +21,7 @@ class Orders extends Component
 
     public function render()
     {
-        $delivery_date = $this->delivery_date == '' ? Carbon::now()->toDateTimeString() : $this->delivery_date;
+        $delivery_date = $this->delivery_date == '' ? Carbon::now()->addDays(1)->toDateTimeString() : $this->delivery_date;
         $orders = Order::query()->where('delivery_date','=',$delivery_date)->get();
         return view('livewire.orders',compact('orders','delivery_date'));
     }

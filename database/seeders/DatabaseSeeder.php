@@ -31,7 +31,5 @@ class DatabaseSeeder extends Seeder
         foreach($array as $item){
             Order::query()->insert($item);
         }
-
-
     }
 }
