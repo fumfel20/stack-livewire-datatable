@@ -78,12 +78,6 @@
 
                     external_flt_grid: true,
                     external_flt_grid_ids: [null,'order_no','delivery_method'],
-                    col_operation: {
-                        id: ['quantity_sum','picked_sum'],
-                        col: [3,4],
-                        operation: ['sum','sum','sum'],
-                        decimal_precision: [0,0,0],
-                    },
 
                 };
                 setFilterGrid("table",tf_config);
