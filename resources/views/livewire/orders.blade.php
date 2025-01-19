@@ -8,11 +8,11 @@
                         <div class="row">
                             <div class="col-2" >
                                 <label for="order_no">Order No:</label><br>
-                                <span id="intOrderId"></span>
+                                <span id="order_no"></span>
                             </div>
                             <div class="col-2">
                                 <label for="delivery_method">Delivery Method:</label><br>
-                                <span id="strDeliveryMethod"></span>
+                                <span id="delivery_method"></span>
                             </div>
                             <div class="col-2" >
                                 <label for="">Delivery Date</label><br>
@@ -78,7 +78,12 @@
 
                     external_flt_grid: true,
                     external_flt_grid_ids: [null,'order_no','delivery_method'],
-
+                    col_operation: {
+                        id: ['quantity_sum','picked_sum'],
+                        col: [3,4],
+                        operation: ['sum','sum','sum'],
+                        decimal_precision: [0,0,0],
+                    },
 
                 };
                 setFilterGrid("table",tf_config);
