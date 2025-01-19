@@ -17,14 +17,21 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        for($i = 1; $i <= 1000; $i++){
-            Order::create([
+        $array = [];
+        for($i = 1; $i <= 20000; $i++){
+            $array[] = [
                 'order_no' => 100000 + $i,
-                'delivery_date' => Carbon::now()->addDays(rand(1, 20)),
+                'delivery_date' => Carbon::now()->addDays(rand(-10, 10)),
                 'delivery_method' => 'FedEx',
                 'quantity' => rand(1, 100),
-            ]);
+                'created_at' => Carbon::now()->addDays(rand(-10, 10)),
+            ];
         }
+        $array = array_chunk($array,1000);
+        foreach($array as $item){
+            Order::query()->insert($item);
+        }
+
 
     }
 }
