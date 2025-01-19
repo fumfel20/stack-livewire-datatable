@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 #[Lazy]
 class Orders extends Component
 {
+    #[Url]
     public $delivery_date = '';
 
     public function setDeliveryDate(){
